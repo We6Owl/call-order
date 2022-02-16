@@ -1,25 +1,63 @@
 <template>
   <div id="app">
-      <CallBtn class="btn_blue" msg="Заказать в Москву"/>
-      <CallBtn class="btn_green" msg="Заказать в Санкт-Петербург"/>
-      <modal v-if="showModal" @close="showModal = false">
-        <!--
-      you can use custom content here to overwrite
-      default content
-    -->
-        <h3 slot="header">custom header</h3>
-      </modal>
+      <button
+      type="button"
+      class="btn btn_green"
+      @click="showModal"
+      >
+      Заказать в Москву
+      </button>
+      
+      <button
+      type="button"
+      class="btn btn_blue"
+      @click="showModal"
+      >
+      Заказать в Санкт-Петербург
+      </button>
+      <Modal 
+            v-show="isModalVisible"
+            @close="closeModal"
+          />
+          <Modal
+        v-show="isModalVisible"
+        @close="closeModal"
+      >
+        <template v-slot:header>
+          This is a new modal header.
+        </template>
+
+        <template v-slot:body>
+          This is a new modal body.
+        </template>
+
+        <template v-slot:footer>
+          This is a new modal footer.
+        </template>
+      </Modal>
   </div>
 </template>
 
 <script>
-import CallBtn from './components/CallBtn.vue'
-import modal from './components/ModalTemplate.vue'
+import Modal from './components/ModalTemplate.vue'
 export default {
   name: 'App',
   components: {
-    CallBtn, modal
-  }        
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
+  methods: {
+      showModal() {
+        this.isModalVisible = true;
+      },
+      closeModal() {
+        this.isModalVisible = false;
+      }      
+  }
 }
 </script>
 
