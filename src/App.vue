@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="">
+      <CallBtn class="bg-blue-400 rounded px-4 sm:w-full" msg="Заказать в Москву"/>
+      <CallBtn class="bg-green-600 rounded px-4 sm:w-full" msg="Заказать в Санкт-Петербург"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import CallBtn from './components/CallBtn.vue'
+
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CallBtn
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  @apply flex justify-around mt-4 w-1/2 text-white flex-wrap 
 }
 </style>
