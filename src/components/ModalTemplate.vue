@@ -35,7 +35,7 @@
 
 <style>
 .modal-mask {
-  @apply fixed top-0 left-0 w-full h-full bg-black opacity-75 table duration-75 
+  @apply fixed top-0 left-0 w-full h-full bg-black table bg-opacity-40 duration-75 
 }
 
 .modal-wrapper {
@@ -43,7 +43,7 @@
 }
 
 .modal-container {
-  @apply rounded-md  lg:w-1/2 lg:m-auto p-8 m-4 bg-white shadow-sm duration-75;
+  @apply rounded-md  lg:w-1/2 lg:m-auto p-8 m-4 bg-white opacity-100 shadow-sm duration-75;
 }
 
 .modal-header h3 {

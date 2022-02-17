@@ -4,10 +4,7 @@
     <button
       class="btn_green"
       id="show-modal"
-      @click="
-        showModal = true;
-        citySelect = 1;
-      "
+      @click="citySelect();changeCity()"
     >
       Заказать в Москву
     </button>
@@ -16,7 +13,7 @@
       id="show-modal"
       @click="
         showModal = true;
-        citySelect = 2;
+        citySelect;
       "
     >
       Заказать в Санкт-Петербурге
@@ -46,7 +43,11 @@
                 for="tel"
                 >Телефон*</label
               >
-              <input
+              
+              <masked-input
+                v-model="phone"
+                mask="\+\7 (111) 111-11-11"
+                placeholder="+7 (___) ___-__-__"
                 class="form-input rounded-md w-full"
                 type="tel"
                 id="tel"
@@ -90,18 +91,19 @@
 
 <script>
 import Modal from "./components/ModalTemplate.vue";
+import MaskedInput from 'vue-masked-input'
 
 export default {
   name: "App",
   components: {
-    Modal,
+    Modal, MaskedInput
   },
   props: {
-    citySelect: String,
+
   },
   data() {
     return {
-      showModal: true,
+      showModal: false,
       contacts: [
         {
           id: 1,
@@ -118,7 +120,19 @@ export default {
       ],
     };
   },
+  methods: {
+    changeCity() {
+        document.querySelector('select').value = 2
+      },
+    citySelect() {
+      this.showModal = true
+        }
+      },
+      
+
 };
+
+
 </script>
 
 <style>
