@@ -13,13 +13,6 @@
               default body
             </slot>
           </div>
-          <div class="flex justify-end">
-            <slot name="footer">
-              <button class="bg-green-600 rounded flex w-full md:w-1/4 text-center text-white py-2 justify-center" @click="$emit('close')">
-                Отправить
-              </button>
-            </slot>
-          </div>
         </div>
       </div>
     </div>
